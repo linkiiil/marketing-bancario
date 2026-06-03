@@ -1,9 +1,9 @@
 # Marketing Bancário
-🏦 IA de Propensão Bancária: Triagem de Leads e Depósitos a Prazo
+### 🏦 IA de Propensão Bancária: Triagem de Leads e Depósitos a Prazo
 
 Este repositório contém o ciclo completo de ciência de dados — desde a análise exploratória (EDA) até a implantação de uma aplicação interativa — para prever a propensão de clientes contratarem depósitos a prazo em uma instituição bancária portuguesa.
 
-📖 Contexto e Objetivos
+#### 📖 Contexto e Objetivos
 Campanhas de marketing direto enfrentam baixas taxas de conversão (apenas 11,7% neste dataset). O objetivo deste projeto é otimizar o retorno sobre o investimento (ROI) através de:
 
 Triagem Inteligente (Ranking): Identificar o "Top 10%" de clientes com maior chance de conversão, onde o modelo atinge um Lift de até 5.89x.
@@ -12,7 +12,7 @@ Interpretabilidade com SHAP: Explicar quais fatores (como saldo ou idade) influe
 
 Prevenção de Fadiga: Sinalizar clientes com excesso de contatos (campaign > 20), onde a probabilidade de conversão cai drasticamente.
 
-🛠️ Estrutura do Repositório
+### 🛠️ Estrutura do Repositório
 
 Projeto - Dados Bancários.pdf: Documentação completa contendo hipóteses, análise exploratória, tratamento de data leakage e métricas de desempenho dos modelos.
 
@@ -22,7 +22,7 @@ modelo_bank_marketing_xgboost.pkl: Pipeline final serializado, contendo o pré-p
 
 requirements.txt: Lista de dependências necessárias para executar o projeto (Streamlit, Scikit-learn, XGBoost, SHAP etc.).
 
-🔬 Principais Achados e Hipóteses
+### 🔬 Principais Achados e Hipóteses
 
 Liquidez (H2): Clientes com saldos médios anuais (balance) positivos têm maior propensão ao investimento.
 
@@ -32,7 +32,7 @@ Perfil Demográfico (H4): Indivíduos entre 60 e 80 anos demonstram maior intere
 
 Efeito Sazonal: A análise via Heatmap revelou que os contatos realizados no Q1 (primeiro trimestre) apresentam taxas de conversão superiores em janelas específicas de dias.
 
-🚀 Como Executar
+### 🚀 Como Executar
 
 1. Pré-requisitos
 Certifique-se de ter o Python 3.9+ instalado. Instale as dependências:
@@ -48,7 +48,7 @@ Bash
 
 streamlit run bank_marketing.py
 
-📊 Avaliação do Modelo
+### 📊 Avaliação do Modelo
 O modelo escolhido foi o XGBoost, otimizado via HalvingRandomSearchCV focado em Average Precision (AP).
 
 Lift @ 10%: Captura ~38% de todas as conversões reais abordando apenas os 10% melhores leads.
