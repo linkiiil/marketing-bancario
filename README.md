@@ -1,58 +1,65 @@
 # Marketing Bancário
-### 🏦 IA de Propensão Bancária: Triagem de Leads e Depósitos a Prazo
 
-Este repositório contém o ciclo completo de ciência de dados — desde a análise exploratória (EDA) até a implantação de uma aplicação interativa — para prever a propensão de clientes contratarem depósitos a prazo em uma instituição bancária portuguesa.
+### 🏦 Previsão de Adesão a Depósitos a Prazo
 
-#### 📖 Contexto e Objetivos
-Campanhas de marketing direto enfrentam baixas taxas de conversão (apenas 11,7% neste dataset). O objetivo deste projeto é otimizar o retorno sobre o investimento (ROI) através de:
+Este projeto aplica técnicas de Machine Learning para prever a probabilidade de um cliente aderir a um depósito a prazo após uma campanha de marketing bancário. Além do desenvolvimento do modelo preditivo, foi criada uma aplicação interativa em Streamlit para apoiar a priorização de clientes e a interpretação das previsões.
 
-Triagem Inteligente (Ranking): Identificar o "Top 10%" de clientes com maior chance de conversão, onde o modelo atinge um Lift de até 5.89x.
+### 📖 Contexto
 
-Interpretabilidade com SHAP: Explicar quais fatores (como saldo ou idade) influenciam cada score individual.
+Campanhas de marketing bancário costumam apresentar baixas taxas de conversão, tornando importante identificar quais clientes possuem maior potencial de contratação. Utilizando dados demográficos, financeiros e históricos de campanhas, este projeto busca transformar informações dos clientes em suporte à tomada de decisão.
 
-Prevenção de Fadiga: Sinalizar clientes com excesso de contatos (campaign > 20), onde a probabilidade de conversão cai drasticamente.
+### 🎯 Objetivos
+Prever a probabilidade de adesão a depósitos a prazo.
+Comparar diferentes algoritmos de classificação.
+Identificar os clientes com maior potencial de conversão.
+Interpretar as previsões utilizando SHAP.
+Disponibilizar uma aplicação interativa para simulações e apoio à decisão.
 
-### 🛠️ Estrutura do Repositório
+### 📂 Estrutura do Repositório
 
-Projeto - Dados Bancários.pdf: Documentação completa contendo hipóteses, análise exploratória, tratamento de data leakage e métricas de desempenho dos modelos.
+Projeto - Dados Bancários.ipynb: desenvolvimento completo do projeto, incluindo análise exploratória, pré-processamento, modelagem e interpretabilidade.
+bank_marketing.py: aplicação Streamlit para realização de previsões e análise dos resultados.
+modelo_bank_marketing_xgboost.pkl: pipeline final contendo pré-processamento e modelo treinado.
+gráficos/: gráficos de avaliação e desempenho dos modelos.
+requirements.txt: dependências necessárias para execução do projeto.
 
-bank_marketing.py: Aplicação Streamlit que serve como interface para o usuário final (gerentes de conta), permitindo simulações em tempo real.
+### 📊 Avaliação do Modelo
 
-modelo_bank_marketing_xgboost.pkl: Pipeline final serializado, contendo o pré-processador (ColumnTransformer) e o modelo XGBoost tunado.
+O desempenho dos modelos foi avaliado sob diferentes perspectivas, incluindo:
 
-requirements.txt: Lista de dependências necessárias para executar o projeto (Streamlit, Scikit-learn, XGBoost, SHAP etc.).
+Curva ROC-AUC
+Lift Chart
+Matriz de Confusão
+Brier Score
+Separabilidade de Classes
 
-### 🔬 Principais Achados e Hipóteses
+### 💡 Principais Insights
 
-Liquidez (H2): Clientes com saldos médios anuais (balance) positivos têm maior propensão ao investimento.
+Clientes com saldos mais elevados tendem a apresentar maior propensão à conversão.
+A presença de empréstimos habitacionais está associada a menores taxas de adesão.
+O histórico de campanhas anteriores possui influência relevante no comportamento dos clientes.
+Existem padrões sazonais que impactam o desempenho das campanhas.
 
-Barreiras de Crédito (H3): A existência de empréstimo habitacional (housing) atua como um redutor consistente na probabilidade de conversão.
+### 🚀 Aplicação Streamlit
 
-Perfil Demográfico (H4): Indivíduos entre 60 e 80 anos demonstram maior interesse em produtos de baixo risco.
+A aplicação permite:
 
-Efeito Sazonal: A análise via Heatmap revelou que os contatos realizados no Q1 (primeiro trimestre) apresentam taxas de conversão superiores em janelas específicas de dias.
+Simular perfis de clientes.
+Calcular scores de propensão à conversão.
+Priorizar leads com maior potencial.
+Visualizar explicações individuais por meio de SHAP.
+Apoiar decisões de marketing de forma intuitiva.
 
-### 🚀 Como Executar
+### ⚙️ Como Executar
 
-1. Pré-requisitos
-Certifique-se de ter o Python 3.9+ instalado. Instale as dependências:
-
-Bash
+Instale as dependências:
 
 pip install -r requirements.txt
 
-2. Executando o Dashboard (Streamlit)
-Para iniciar a aplicação interativa e realizar predições:
-
-Bash
+Execute a aplicação:
 
 streamlit run bank_marketing.py
 
-### 📊 Avaliação do Modelo
-O modelo escolhido foi o XGBoost, otimizado via HalvingRandomSearchCV focado em Average Precision (AP).
+### 👤 Autor
 
-Lift @ 10%: Captura ~38% de todas as conversões reais abordando apenas os 10% melhores leads.
-
-ROC-AUC: 0.7628 (Embora o foco tenha sido métricas de ranking como Precision@K e Lift@K).
-
-Nota técnica: Foram removidas as variáveis duration, contact e poutcome do treinamento para evitar Data Leakage, garantindo que o modelo seja utilizável em cenários onde o desfecho da ligação ainda não ocorreu.
+Rodrigo Emanuel Freitas Losada
