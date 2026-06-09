@@ -17,11 +17,11 @@ Disponibilizar uma aplicação interativa para simulações e apoio à decisão.
 
 ### 📂 Estrutura do Repositório
 
-Projeto - Dados Bancários.ipynb: desenvolvimento completo do projeto, incluindo análise exploratória, pré-processamento, modelagem e interpretabilidade.
-bank_marketing.py: aplicação Streamlit para realização de previsões e análise dos resultados.
-modelo_bank_marketing_xgboost.pkl: pipeline final contendo pré-processamento e modelo treinado.
-gráficos/: gráficos de avaliação e desempenho dos modelos.
-requirements.txt: dependências necessárias para execução do projeto.
+├── Projeto - Dados Bancários.ipynb: desenvolvimento completo do projeto, incluindo análise exploratória, pré-processamento, modelagem e interpretabilidade.
+├── bank_marketing.py: aplicação Streamlit para realização de previsões e análise dos resultados.
+├── modelo_bank_marketing_xgboost.pkl: pipeline final contendo pré-processamento e modelo treinado.
+├── gráficos/: gráficos de avaliação e desempenho dos modelos.
+├── requirements.txt: dependências necessárias para execução do projeto.
 
 ### 📊 Avaliação do Modelo
 
